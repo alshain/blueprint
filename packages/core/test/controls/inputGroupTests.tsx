@@ -41,4 +41,20 @@ describe("<InputGroup>", () => {
         group.setProps({ type: "password" });
         assert.strictEqual(group.find("input").prop("type"), "password");
     });
+
+    it("supports custom style attribute", () => {
+        // first check default behavior isn't to set a color of red to the input element
+        {
+            const group = mount(<InputGroup type="text" />);
+            const style = group.find("input").prop("style") as React.CSSProperties;
+            assert.notStrictEqual(style.color, "red", "Santy test: Expected default behavior not to set red color");
+        }
+
+        {
+            const group = mount(<InputGroup type="text" style={{color: "red"}} />);
+            const style = group.find("input").prop("style") as React.CSSProperties;
+
+            assert.strictEqual(style.color, "red");
+        }
+    });
 });

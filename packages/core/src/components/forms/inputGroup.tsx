@@ -65,7 +65,10 @@ export class InputGroup extends React.Component<HTMLInputProps & IInputGroupProp
         const classes = classNames(Classes.INPUT_GROUP, Classes.intentClass(intent), {
             [Classes.DISABLED]: this.props.disabled,
         }, className);
-        const style: React.CSSProperties = { paddingRight: this.state.rightElementWidth };
+        const style: React.CSSProperties = {
+            paddingRight: this.state.rightElementWidth,
+            ...this.props.style,
+        };
 
         return (
             <div className={classes}>
