@@ -37,6 +37,11 @@ export interface IInputGroupProps extends IControlledProps, IIntentProps, IProps
     rightElement?: JSX.Element;
 
     /**
+     * CSS styles to apply to the input
+     */
+    style?: React.CSSProperties;
+
+    /**
      * HTML `input` type attribute.
      * @default "text"
      */
